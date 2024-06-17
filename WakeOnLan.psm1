@@ -8,12 +8,12 @@ Chris Warwick, @cjwarwickps, January 2012.  This version, November 2015.
 Cmdlet to send a Wake-on-Lan packet to a specified target MAC addresses.
 
 
-Wake on Lan (WOL) uses a ï¿½Magic Packetï¿½ that consists of six bytes of 0xFF (the physical layer broadcast address), followed 
+Wake on Lan (WOL) uses a “Magic Packet” that consists of six bytes of 0xFF (the physical layer broadcast address), followed 
 by 16 copies of the 6-byte (48-bit) target MAC address (see http://en.wikipedia.org/wiki/Wake-on-LAN).   
 
 This packet is sent via UDP to the LAN Broadcast addresses (255.255.255.255) on arbitrary Port 4000.  
 
-Construction of this packet in PowerShell is very straight-forward: (ï¿½$Packet = [Byte[]](,0xFF*6)+($Mac*16)ï¿½).
+Construction of this packet in PowerShell is very straight-forward: (“$Packet = [Byte[]](,0xFF*6)+($Mac*16)”).
 
 This script has a (hard-coded) table of saved MAC addresses to allow machine aliases to be specified as parameters to the 
 function (the real addresses have been obfuscated here) and uses a regex to validate MAC address strings.  
@@ -34,12 +34,12 @@ or less depending on usage); ARP cannot be used to dynamically resolve the addre
 .Synopsis
     This cmdlet sends Wake-on-Lan Magic Packets to the specified Mac addresses.
 .Description
-    Wake on Lan (WOL) uses a ï¿½Magic Packetï¿½ that consists of six bytes of 0xFF (the physical layer broadcast address), followed 
+    Wake on Lan (WOL) uses a “Magic Packet” that consists of six bytes of 0xFF (the physical layer broadcast address), followed 
     by 16 copies of the 6-byte (48-bit) target MAC address (see http://en.wikipedia.org/wiki/Wake-on-LAN).   
 
     This packet is sent via UDP to the LAN Broadcast addresses (255.255.255.255) on arbitrary Port 4000.  
 
-    Construction of this packet in PowerShell is very straight-forward: (ï¿½$Packet = [Byte[]](,0xFF*6)+($Mac*16)ï¿½).
+    Construction of this packet in PowerShell is very straight-forward: (“$Packet = [Byte[]](,0xFF*6)+($Mac*16)”).
 
     This script has a (hard-coded) table of saved MAC addresses to allow machine aliases to be specified as parameters to the 
     function (the real addresses have been obfuscated here) and uses a regex to validate MAC address strings.  The address
